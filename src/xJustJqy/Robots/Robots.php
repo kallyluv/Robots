@@ -17,7 +17,7 @@ class Robots extends PluginBase {
       Entity::registerEntity(Robot::class, true);
     }
 
-    public function createRobot(Player $owner) : bool {
+    public static function createRobot(Player $owner) : bool {
       if(isset($this->robots[$owner->getName()])) {
         unset($this->robots[$owner->getName()]);
       }
