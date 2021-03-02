@@ -29,6 +29,7 @@ class Robots extends PluginBase {
       $robot->spawnToAll();
       $robot->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, $scale);
       $robot->sendData($robot->getViewers());
+      return $robot->isAlive();
     }
 
 }
