@@ -17,7 +17,13 @@ class RobotCommand extends Command {
     public function execute(CommandSender $sender, string $label, array $args) : bool {
 
       if(!$sender instanceof Player) return true;
-      Robots::createRobot($sender);
+      if(Robots::createRobot($sender)){
+        $sender->sendMessage("A robot has been spawned in!");
+      }else{
+        $sender->sendMessage("The robot failed to spawn in!");
+      }
+
+      return true;
 
     }
 
