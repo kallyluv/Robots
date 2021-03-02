@@ -24,6 +24,8 @@ class Robots extends PluginBase {
       $nbt->setTag($owner->getNamedTag()->getTag("Skin"));
       $nbt->setString("playername", $player->getName() . "'s Robot");
       $robot = new Robot($owner->getLevel(), $nbt);
+      $robot->setNameTagAlwaysVisible(true);
+      $robot->spawnToAll();
       $robot->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, $scale);
       $robot->sendData($robot->getViewers());
     }
