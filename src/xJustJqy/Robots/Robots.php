@@ -14,6 +14,7 @@ class Robots extends PluginBase {
     public function onEnable() {
       $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
       $this->getServer()->getCommandMap()->registerAll("robot", [new RobotCommand()]);
+      Entity::registerEntity(Robot::class, true);
     }
 
     public function createRobot(Player $owner) : bool {
