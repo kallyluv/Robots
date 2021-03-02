@@ -16,7 +16,7 @@ class Robots extends PluginBase {
       $this->getServer()->getCommandMap()->registerAll("robot", [new RobotCommand()]);
     }
 
-    public function createRobot(Player $owner, string $name, int $type) : bool {
+    public function createRobot(Player $owner) : bool {
       if(isset($this->robots[$owner->getName()])) {
         unset($this->robots[$owner->getName()]);
       }
