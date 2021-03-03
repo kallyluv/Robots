@@ -21,6 +21,7 @@ class Robots extends PluginBase {
       if(isset($this->robots[$owner->getName()])) {
         unset($this->robots[$owner->getName()]);
       }
+      $player = $owner;
       $nbt = Entity::createBaseNBT($player, null, $player->getYaw(), $player->getPitch());
       $nbt->setTag($owner->namedtag->getTag("Skin"));
       $nbt->setString("playername", $player->getName() . "'s Robot");
