@@ -22,12 +22,12 @@ class Robots extends PluginBase {
         unset($this->robots[$owner->getName()]);
       }
       $nbt = Entity::createBaseNBT($player, null, $player->getYaw(), $player->getPitch());
-      $nbt->setTag($owner->getNamedTag()->getTag("Skin"));
+      $nbt->setTag($owner->namedtag->getTag("Skin"));
       $nbt->setString("playername", $player->getName() . "'s Robot");
       $robot = new Robot($owner->getLevel(), $nbt);
       $robot->setNameTagAlwaysVisible(true);
       $robot->spawnToAll();
-      $robot->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, $scale);
+      $robot->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, 0.25);
       $robot->sendData($robot->getViewers());
       return $robot->isAlive();
     }
